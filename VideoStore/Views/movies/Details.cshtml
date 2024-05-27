@@ -1,0 +1,28 @@
+﻿
+
+@model VideoStore.Models.movies;
+
+@{
+    ViewData["Title"] = "Details";
+}
+<section class="detail">
+    <div class="left">
+        <img src="~/images/@Html.DisplayFor(model => model.thumbnail)" />
+    </div>
+    <div class="right">
+        <h3>@Html.DisplayFor(model => model.title)</h3>
+        <div class="flexme">
+            <p>@Html.DisplayFor(model => model.source)</p>
+            <p>@Html.DisplayFor(model => model.type)</p>
+            <p>@Html.DisplayFor(model => model.duration)</p>
+        </div>
+        <p>@Html.DisplayFor(model => model.synopsis)</p>
+        <div class="bottomflex">
+            <a href="@Html.DisplayFor(model => model.link)" target="_blank"><button>Watch Now</button></a>
+            <a asp-action="Edit" asp-route-id="@Model?.Id"><button>Edit</button></a> 
+            <a asp-action="Index"><button>Back to List</button></a>
+    
+</div>
+    </div>
+</section>
+

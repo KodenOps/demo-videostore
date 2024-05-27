@@ -1,0 +1,108 @@
+﻿@model IEnumerable<VideoStore.Models.movies>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<section class="topHeader">
+    <div>
+        <h5>Our Movies</h5>
+        <p>Explore or series of Movies</p>
+    </div>
+   
+    <p class="createnew">
+    <a asp-action="Create"><button>Create New</button></a>
+</p>
+</section>
+<section class="movieContainer">
+@foreach (var item in Model)
+{
+    <a asp-action="Details" asp-route-id="@item.Id">
+
+
+    <div class="eachMovie">
+        <img src="~/images/@Html.DisplayFor(modelItem => item.thumbnail)" />
+        <h6> @Html.DisplayFor(modelItem => item.title)</h6>
+        <div class="bottom">
+            <p>@Html.DisplayFor(modelItem => item.type)</p>
+            <p>@Html.DisplayFor(modelItem => item.source)</p>
+            <p> @Html.DisplayFor(modelItem => item.duration)</p>
+        </div>
+    </div>
+    </a>
+
+}
+
+</section>
+<p class="addnew">
+    <a asp-action="Create"><button >Create New</button></a>
+</p>
+
+
+
+
+
+
+
+
+
+
+
+@*
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.title)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.type)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.source)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.thumbnail)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.link)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.duration)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+{
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.title)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.type)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.source)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.thumbnail)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.link)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.duration)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+*@
